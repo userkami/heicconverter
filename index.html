@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert HEIC to JPG or PNG instantly in your browser. No file upload, no registration. Fast, private, and secure. Works on iPhone, Windows, Android.">
+    <title>HEIC to JPG Converter – Free & Private (No Upload)</title>
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="HEIC to JPG Converter – Free & Private">
+    <meta property="og:description" content="Convert HEIC to JPG or PNG instantly in your browser. No file upload, no registration. Fast, private, and secure.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://heicconverter.site">
+    <meta property="og:image" content="https://heicconverter.site/assets/img/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HEIC to JPG Converter – Free & Private">
+    <meta name="twitter:description" content="Convert HEIC to JPG or PNG instantly in your browser. No file upload, no registration. Fast, private, and secure.">
+    <meta name="twitter:image" content="https://heicconverter.site/assets/img/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "HEIC Converter",
+      "url": "https://heicconverter.site",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "description": "Convert HEIC to JPG or PNG instantly in your browser. No file upload, no registration. Fast, private, and secure."
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">heicconverter</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <section class="hero">
+                <h2>Convert HEIC to JPG or PNG – Fast & Secure</h2>
+                <p class="tagline">Private conversion in your browser. No upload, no registration.</p>
+                
+                <!-- Upload Zone -->
+                <div id="upload-zone" class="upload-zone">
+                    <div class="upload-content">
+                        <svg class="upload-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p>Drag & drop your HEIC files here</p>
+                        <p class="or-text">or</p>
+                        <button id="browse-btn" class="btn btn-primary">Browse Files</button>
+                        <input type="file" id="file-input" multiple accept=".heic,.heif" style="display: none;">
+                    </div>
+                </div>
+
+                <!-- File List -->
+                <div id="file-list" class="file-list" style="display: none;">
+                    <h3>Selected Files</h3>
+                    <div id="files-container"></div>
+                    
+                    <!-- Conversion Options -->
+                    <div class="conversion-options">
+                        <div class="option-group">
+                            <label>Output Format:</label>
+                            <select id="format-select">
+                                <option value="jpg">JPG</option>
+                                <option value="png">PNG</option>
+                            </select>
+                        </div>
+                        
+                        <div class="option-group" id="quality-option">
+                            <label>JPG Quality:</label>
+                            <select id="quality-select">
+                                <option value="0.92">High (92%)</option>
+                                <option value="0.85" selected>Medium (85%)</option>
+                                <option value="0.75">Low (75%)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button id="convert-btn" class="btn btn-secondary">Convert Files</button>
+                </div>
+
+                <!-- Results -->
+                <div id="results" class="results" style="display: none;">
+                    <h3>Converted Files</h3>
+                    <div id="results-container"></div>
+                    <button id="download-all-btn" class="btn btn-primary">Download All as ZIP</button>
+                </div>
+            </section>
+
+            <!-- Privacy Notice -->
+            <section class="privacy-notice">
+                <div class="lock-icon">🔒</div>
+                <p><strong>All conversions happen locally in your browser.</strong> We never see or store your photos.</p>
+            </section>
+        </div>
+    </main>
+
+    <!-- SEO Article Section -->
+    <section class="seo-article">
+        <div class="container">
+            <div id="article-content">
+                <!-- Article will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 heicconverter.site | Fast & Private HEIC Conversion</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="lib/heic2any.min.js"></script>
+    <script src="lib/jszip.min.js"></script>
+    <script src="lib/FileSaver.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Load SEO article
+        fetch('content/article-conversion-guide.md')
+            .then(response => response.text())
+            .then(text => {
+                // Simple markdown to HTML conversion (basic)
+                const html = text
+                    .replace(/^# (.*$)/gim, '<h2>$1</h2>')
+                    .replace(/^## (.*$)/gim, '<h3>$1</h3>')
+                    .replace(/^\*\*([^*]+)\*\*/gim, '<strong>$1</strong>')
+                    .replace(/^\* ([^*]+)$/gim, '<li>$1</li>')
+                    .replace(/(<li>.*<\/li>)/gim, '<ul>$1</ul>')
+                    .replace(/\n\n/gim, '</p><p>')
+                    .replace(/^(.+)$/gim, '<p>$1</p>');
+                document.getElementById('article-content').innerHTML = html;
+            })
+            .catch(err => console.log('Article not loaded:', err));
+    </script>
+</body>
+</html>
