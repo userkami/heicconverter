@@ -45,20 +45,87 @@
             <h1 class="logo">heicconverter</h1>
         </div>
 		
-		<script type="application/ld+json">
+	<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [{
-    "@type": "Question",
-    "name": "What is HEIC and why convert it?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "HEIC is Apple's default image format that offers better compression but limited compatibility..."
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "HEIC to JPG/PNG Converter",
+      "operatingSystem": "Web",
+      "applicationCategory": "MultimediaApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free online HEIC to JPG/PNG converter. Convert HEIC photos from iPhone or Mac to universally supported JPG or PNG formats. Supports batch conversion, EXIF metadata options, and high-quality output.",
+      "url": "https://yourdomain.com/heic-to-jpg-converter",
+      "image": "https://yourdomain.com/images/heic-converter.png"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why can’t Windows open HEIC files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows requires the free HEIF Image Extensions from the Microsoft Store to open HEIC files. Alternatively, you can convert HEIC to JPG using our free converter."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does converting HEIC to JPG lose quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, a slight amount of quality is lost because JPG is a lossy format. However, the difference is barely noticeable. If you need lossless conversion, choose PNG."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is HEIC better than JPG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "HEIC produces smaller file sizes with better quality compared to JPG, but JPG is more widely compatible across apps, devices, and websites."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert HEIC to JPG without uploading files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. On Mac, you can use Preview or Automator; on Windows, you can use the Photos app. For quick online conversion, use our secure HEIC to JPG/PNG converter."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "Convert HEIC to JPG on Windows 11/10",
+      "description": "Step-by-step guide to convert HEIC files into JPG using the built-in Windows Photos app.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Open HEIC in Photos",
+          "text": "Right-click your HEIC image and open it with the Photos app."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Choose Save As",
+          "text": "Click on 'Save As' from the menu."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Select JPG format",
+          "text": "Pick JPG as the output format and save your converted file."
+        }
+      ]
     }
-  }]
+  ]
 }
 </script>
+
 
 <script type="application/ld+json">
 {
