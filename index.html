@@ -239,26 +239,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 <script src="assets/js/main.js"></script>
-    <script>
+    
 	
-	
-	
-        // Load SEO article
-        fetch('content/article-conversion-guide.md')
-            .then(response => response.text())
-            .then(text => {
-                // Simple markdown to HTML conversion (basic)
-                const html = text
-                    .replace(/^# (.*$)/gim, '<h2>$1</h2>')
-                    .replace(/^## (.*$)/gim, '<h3>$1</h3>')
-                    .replace(/^\*\*([^*]+)\*\*/gim, '<strong>$1</strong>')
-                    .replace(/^\* ([^*]+)$/gim, '<li>$1</li>')
-                    .replace(/(<li>.*<\/li>)/gim, '<ul>$1</ul>')
-                    .replace(/\n\n/gim, '</p><p>')
-                    .replace(/^(.+)$/gim, '<p>$1</p>');
-                document.getElementById('article-content').innerHTML = html;
-            })
-            .catch(err => console.log('Article not loaded:', err));
-    </script>
+	<script>
+  fetch('content/article-conversion-guide.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('article-content').innerHTML = html;
+    })
+    .catch(err => console.log('Article not loaded:', err));
+</script>
+
 </body>
 </html>
