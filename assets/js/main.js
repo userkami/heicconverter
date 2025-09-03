@@ -132,21 +132,23 @@ class HEICConverter {
         }
     }
 
-    displayResults() {
-        this.resultsContainer.innerHTML = '';
-        this.convertedFiles.forEach((file, index) => {
-            const resultItem = document.createElement('div');
-            resultItem.className = 'result-item';
-            resultItem.innerHTML = `
-                <div class="result-info">
-                    <span class="file-name">${file.name}</span>
-                    <span class="file-size">${this.formatFileSize(file.blob.size)}</span>
-                </div>
-                <a href="${URL.createObjectURL(file.blob)}" download="${file.name}" class="btn btn-secondary">Download</a>
-            `;
-            this.resultsContainer.appendChild(resultItem);
-        });
-    }
+    // Replace the displayResults method in the existing main.js with this improved version:
+
+displayResults() {
+    this.resultsContainer.innerHTML = '';
+    this.convertedFiles.forEach((file, index) => {
+        const resultItem = document.createElement('div');
+        resultItem.className = 'result-item';
+        resultItem.innerHTML = `
+            <div class="result-info">
+                <div class="result-file-name">${file.name}</div>
+                <div class="result-file-size">${this.formatFileSize(file.blob.size)}</div>
+            </div>
+            <a href="${URL.createObjectURL(file.blob)}" download="${file.name}" class="btn btn-secondary">Download</a>
+        `;
+        this.resultsContainer.appendChild(resultItem);
+    });
+}
 
     async downloadAllAsZip() {
         if (this.convertedFiles.length === 0) return;
