@@ -132,45 +132,81 @@ class HEICConverter {
         }
     }
 
-    // Replace the displayResults method in the existing main.js with this improved version:
-
-// Update the displayResults method in your existing main.js:
-
-displayResults() {
-    this.resultsContainer.innerHTML = '';
-    this.convertedFiles.forEach((file, index) => {
-        const resultItem = document.createElement('div');
-        resultItem.className = 'result-item';
-        resultItem.innerHTML = `
-            <div class="result-info">
-                <div class="result-file-name">${file.name}</div>
-                <div class="result-file-size">${this.formatFileSize(file.blob.size)}</div>
-            </div>
-            <a href="${URL.createObjectURL(file.blob)}" download="${file.name}" class="btn btn-secondary result-download-btn">Download</a>
-        `;
-        this.resultsContainer.appendChild(resultItem);
-    });
-}
+    displayResults() {
+        this.resultsContainer.innerHTML = '';
+        this.convertedFiles.forEach((file, index) => {
+            const resultItem = document.createElement('div');
+            resultItem.className = 'result-item';
+            resultItem.innerHTML = `
+                <div class="result-info">
+                    <div class="result-file-name">${file.name}</div>
+                    <div class="result-file-size">${this.formatFileSize(file.blob.size)}</div>
+                </div>
+                <a href="${URL.createObjectURL(file.blob)}" download="${file.name}" class="btn btn-secondary result-download-btn">Download</a>
+            `;
+            this.resultsContainer.appendChild(resultItem);
+        });
+    }
 
     async downloadAllAsZip() {
-        if (this.convertedFiles.length === 0) return;
+        if (this.convertedFiles.length === 0) {
+            alert('No files to download.');
+            return;
+        }
 
-        const zip = new JSZip();
-        this.convertedFiles.forEach(file => {
-            zip.file(file.name, file.blob);
-        });
+        // Show loading state
+        const originalText = this.downloadAllBtn.textContent;
+        this.downloadAllBtn.disabled = true;
+        this.downloadAllBtn.textContent = 'Creating ZIP...';
 
         try {
-            const content = await zip.generateAsync({ type: 'blob' });
-            saveAs(content, 'converted-images.zip');
+            // Create ZIP using JSZip
+            const zip = new JSZip();
+            
+            // Add all files to ZIP
+            this.convertedFiles.forEach(file => {
+                zip.file(file.name, file.blob);
+            });
+
+            // Generate ZIP file
+            const content = await zip.generateAsync({ 
+                type: 'blob',
+                compression: 'DEFLATE',
+                compressionOptions: {
+                    level: 6
+                }
+            });
+
+            // Download the ZIP file
+            const zipFileName = `heic-converter-${new Date().getTime()}.zip`;
+            saveAs(content, zipFileName);
+            
         } catch (error) {
             console.error('ZIP creation error:', error);
             alert('Error creating ZIP file. Please try downloading individual files.');
+        } finally {
+            // Restore button state
+            this.downloadAllBtn.disabled = false;
+            this.downloadAllBtn.textContent = originalText;
         }
     }
 }
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Check if required libraries are loaded
+    if (typeof heic2any === 'undefined') {
+        console.error('heic2any library not loaded');
+        return;
+    }
+    if (typeof JSZip === 'undefined') {
+        console.error('JSZip library not loaded');
+        return;
+    }
+    if (typeof saveAs === 'undefined') {
+        console.error('FileSaver library not loaded');
+        return;
+    }
+    
     new HEICConverter();
 });
