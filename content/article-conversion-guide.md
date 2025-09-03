@@ -11,16 +11,16 @@ Most non-Apple devices and software don't natively support HEIC files. When you 
 
 ## How to Convert HEIC to JPG or PNG
 
-### On iPhone:
+** On iPhone: **
 1. Go to Settings > Camera > Formats
 2. Change to "Most Compatible" instead of "High Efficiency"
 3. This will save new photos as JPG
 
-### On Windows:
+** On Windows: **
 1. Install the HEIF Image Extensions from Microsoft Store
 2. Or use our converter tool for instant conversion
 
-### On Mac:
+** On Mac: **
 1. Photos app can export as JPG
 2. Preview can also convert HEIC to JPG
 
