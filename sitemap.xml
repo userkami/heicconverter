@@ -2,18 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://heicconverter.site/</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2024-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-  <loc>https://heicconverter.site/privacy-policy</loc>
-  <changefreq>yearly</changefreq>
-  <priority>0.3</priority>
-</url>
-<url>
-  <loc>https://heicconverter.site/terms-of-service</loc>
-  <changefreq>yearly</changefreq>
-  <priority>0.3</priority>
-</url>
+    <loc>https://heicconverter.site/privacy-policy</loc>
+    <lastmod>2024-04-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://heicconverter.site/terms-of-service</loc>
+    <lastmod>2024-04-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
