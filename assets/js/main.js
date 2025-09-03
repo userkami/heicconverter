@@ -134,6 +134,8 @@ class HEICConverter {
 
     // Replace the displayResults method in the existing main.js with this improved version:
 
+// Update the displayResults method in your existing main.js:
+
 displayResults() {
     this.resultsContainer.innerHTML = '';
     this.convertedFiles.forEach((file, index) => {
@@ -144,7 +146,7 @@ displayResults() {
                 <div class="result-file-name">${file.name}</div>
                 <div class="result-file-size">${this.formatFileSize(file.blob.size)}</div>
             </div>
-            <a href="${URL.createObjectURL(file.blob)}" download="${file.name}" class="btn btn-secondary">Download</a>
+            <a href="${URL.createObjectURL(file.blob)}" download="${file.name}" class="btn btn-secondary result-download-btn">Download</a>
         `;
         this.resultsContainer.appendChild(resultItem);
     });

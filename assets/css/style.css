@@ -58,11 +58,11 @@ body {
 .upload-zone {
     border: 2px dashed #cbd5e1;
     border-radius: 12px;
-    padding: 2rem 1rem; /* Reduced height */
+    padding: 1.5rem 1rem;
     background: #fff;
     margin: 1rem 0;
     transition: all 0.3s ease;
-    min-height: 150px; /* Set minimum height */
+    min-height: 120px;
 }
 
 .upload-zone:hover {
@@ -100,6 +100,7 @@ body {
     display: inline-block;
     text-decoration: none;
     text-align: center;
+    white-space: nowrap;
 }
 
 .btn-primary {
@@ -167,8 +168,8 @@ body {
     min-width: 120px;
 }
 
-/* File Items */
-.file-item, .result-item {
+/* File Items - Improved Layout */
+.file-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -179,27 +180,61 @@ body {
     background: #f8fafc;
 }
 
-.file-info, .result-info {
+.file-info {
     flex: 1;
+    min-width: 0; /* Allow text truncation */
 }
 
-.file-name, .result-file-name {
+.file-name {
     font-weight: 500;
     color: #1e293b;
     margin-bottom: 0.25rem;
-    word-break: break-all;
+    word-break: break-word;
+    font-size: 0.95rem;
 }
 
-.file-size, .result-file-size {
+.file-size {
     font-size: 0.85rem;
     color: #64748b;
 }
 
-.result-item .btn {
-    margin-left: 1rem;
+/* Result Items - Fixed Overlapping */
+.result-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    margin-bottom: 0.75rem;
+    background: #f8fafc;
+    width: 100%;
+}
+
+.result-info {
+    min-width: 0; /* Allow text truncation */
+}
+
+.result-file-name {
+    font-weight: 500;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+    word-break: break-word;
+    font-size: 0.95rem;
+}
+
+.result-file-size {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.result-download-btn {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
     flex-shrink: 0;
+    min-width: 100px;
+    text-align: center;
 }
 
 /* Download All Button */
@@ -281,8 +316,8 @@ body {
     }
     
     .upload-zone {
-        padding: 1.5rem 1rem;
-        min-height: 120px;
+        padding: 1.25rem 1rem;
+        min-height: 100px;
     }
     
     .conversion-options {
@@ -290,20 +325,19 @@ body {
         gap: 1rem;
     }
     
-    .file-item, .result-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-    
-    .result-item .btn {
-        margin-left: 0;
-        margin-top: 0.5rem;
-        width: 100%;
-    }
-    
     .option-group select {
         min-width: 100%;
+    }
+    
+    /* Mobile-specific result item layout */
+    .result-item {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .result-download-btn {
+        width: 100%;
+        min-width: auto;
     }
 }
 
@@ -318,11 +352,15 @@ body {
     
     .upload-zone {
         padding: 1rem;
-        min-height: 100px;
+        min-height: 90px;
     }
     
     .btn {
         padding: 0.6rem 1.2rem;
         font-size: 0.9rem;
+    }
+    
+    .result-item {
+        padding: 0.75rem;
     }
 }
