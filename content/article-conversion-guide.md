@@ -26,16 +26,16 @@ Most non-Apple devices and software don't natively support HEIC files. When you 
 
 ## Why Use Our HEIC Converter?
 
-### 🔒 100% Private
+** 🔒 100% Private **
 All conversions happen in your browser. Your photos never leave your device.
 
-### ⚡ Instant Conversion
+** ⚡ Instant Conversion **
 No waiting, no uploading to servers. Convert HEIC to JPG or PNG in seconds.
 
-### 📱 Works Everywhere
+** 📱 Works Everywhere **
 Compatible with iPhone, Windows, Mac, Android, and all modern browsers.
 
-### 🆓 Completely Free
+** 🆓 Completely Free **
 No registration, no ads, no limitations. Convert as many files as you need.
 
 ## Common Use Cases
@@ -50,16 +50,16 @@ No registration, no ads, no limitations. Convert as many files as you need.
 
 ## Frequently Asked Questions
 
-### Is it safe to convert HEIC files online?
+** Is it safe to convert HEIC files online? **
 Yes! Our converter works entirely in your browser. No files are uploaded to any server.
 
-### Will conversion reduce image quality?
+** Will conversion reduce image quality? **
 When converting to JPG, you can choose quality settings. PNG conversion is lossless.
 
-### How many files can I convert at once?
+** How many files can I convert at once? **
 You can convert up to 10 HEIC files simultaneously with our batch converter.
 
-### Do I need to install software?
+** Do I need to install software? **
 No installation required. Everything works directly in your web browser.
 
 ## Technical Information
